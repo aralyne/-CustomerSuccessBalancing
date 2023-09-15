@@ -1,3 +1,5 @@
+require 'set'
+
 class CustomerSuccessBalancing
   attr_reader :customer_success, :customers, :away_customer_success
 
