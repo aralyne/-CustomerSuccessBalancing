@@ -42,7 +42,7 @@ K --> L[End]
 
 ## Considerações
 
-- Considerando o número de clientes e CSs, presentes nos testes, o metodo `sort_by`` é eficiente e prático para a maioria das situações reais,
+- Considerando o número de clientes e CSs, presentes nos testes, o metodo `sort_by` é eficiente e prático para a maioria das situações reais,
 caso o número de elementos fosse significativamente maior e a ordenação fosse um gargalo de performance, outras otimizações ou estratégias
 poderiam ser consideradas. ex: `quick sort` ou `merge sort`.
 
