@@ -1,10 +1,1 @@
-# Ruby
-
-## Como rodar os testes
-
-No terminal, execute os comandos:
-
-```
-cd ruby
-ruby customer_success_balancing.rb
-```
+[![Run tests](https://github.com/aralyne/-CustomerSuccessBalancing/actions/workflows/main.yml/badge.svg)](https://github.com/aralyne/-CustomerSuccessBalancing/actions/workflows/main.yml)
