@@ -33,11 +33,23 @@ K --> L[End]
 
 ## Princípios de Clean Code Aplicados
 
-- **Nomes Descritivos**: Usamos nomes de variáveis e métodos que descrevem claramente sua funcionalidade.
-- **Funções Pequenas**: Cada função tem um propósito único, o que facilita a manutenção e a compreensão.
 - **Evitar Comentários Desnecessários**: O código é autoexplicativo.
-- **Utilização de Métodos Privados**: Isolamos a lógica específica em métodos privados para encapsulamento.
+- **Utilização de Métodos Privados**: A lógica específica em métodos privados para encapsulamento.
+- **Nomes Descritivos**: Os nomes de variáveis e métodos que descrevem claramente sua funcionalidade.
+- **Funções Pequenas**: Cada função tem um propósito único, o que facilita a manutenção e a compreensão.
 - **Estruturação do Código**: O código é estruturado de uma forma que facilita a leitura e o entendimento do fluxo da aplicação.
+
+
+## Considerações
+
+- Considerando o número de clientes e CSs, presentes nos testes, o metodo `sort_by`` é eficiente e prático para a maioria das situações reais,
+caso o número de elementos fosse significativamente maior e a ordenação fosse um gargalo de performance, outras otimizações ou estratégias
+poderiam ser consideradas. ex: `quick sort` ou `merge sort`.
+
+- O método `allocate_customers_to_cs` utiliza uma abordagem de dois ponteiros para alocar clientes a CSs. Essa abordagem e eficiente para esse caso
+especifico, atualmente é o melhor trade-off entre performance e legibilidade. Caso o nuúmero de clientes fosse significativamente maior, outras
+estratégias poderiam ser consideradas. ex: `binary search` ou `hash table`.
+
 
 ## Como Executar
 

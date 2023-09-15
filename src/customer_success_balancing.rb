@@ -20,7 +20,8 @@ class CustomerSuccessBalancing
   def filter_active_customer_success
     return customer_success if away_customer_success.empty?
 
-    customer_success.reject { |cs| away_customer_success.include?(cs[:id]) }
+    away_set = Set.new(away_customer_success)
+    customer_success.reject { |cs| away_set.include?(cs[:id]) }
   end
 
   def order_by_score(array)
@@ -29,16 +30,19 @@ class CustomerSuccessBalancing
 
   def allocate_clients_to_css(sorted_cses, sorted_customers)
     cs_counts = Hash.new(0)
+    cs_index = 0
 
     sorted_customers.each do |customer|
-      suitable_cs = sorted_cses.find { |cs| cs[:score] >= customer[:score] }
-      cs_counts[suitable_cs[:id]] += 1 if suitable_cs
+      while cs_index < sorted_cses.length && sorted_cses[cs_index][:score] < customer[:score]
+        cs_index += 1
+      end
+      cs_counts[sorted_cses[cs_index][:id]] += 1 if cs_index < sorted_cses.length
     end
 
     return 0 if cs_counts.empty?
 
     max_clients = cs_counts.values.max
-    cs_with_max_clients = cs_counts.select { |_, v| v == max_clients }
+    cs_with_max_clients = cs_counts.select { |_, c| c == max_clients }
 
     cs_with_max_clients.size > 1 ? 0 : cs_with_max_clients.keys.first
   end
