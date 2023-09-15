@@ -1,6 +1,4 @@
 require 'minitest/autorun'
-require 'minitest/byebug' if ENV['DEBUG']
-require 'pry-byebug'
 require 'timeout'
 require_relative '../src/customer_success_balancing.rb'
 
